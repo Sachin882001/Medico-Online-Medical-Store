@@ -1,0 +1,152 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+} */
+
+/* Custom CSS */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .logo.spin {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* App.css or your custom CSS file */
+
+.navbar-nav .nav-item {
+  margin: 0 10px; /* Adjust spacing between nav items */
+}
+
+.navbar-brand {
+  font-size: 1.5rem; /* Adjust brand font size */
+}
+
+.navbar-nav .nav-link {
+  font-size: 1rem; /* Adjust font size for nav links */
+}
+
+@media (max-width: 767.98px) {
+  .navbar-nav {
+    text-align: center; /* Center-align items on small screens */
+  }
+}
+
+/* categoies component css */
+.category-item {
+  transition: background-color 0.3s ease;
+}
+
+.category-item:hover {
+  background-color: #f06292; /* Pink color */
+}
+
+.category-image {
+  transition: transform 0.3s ease;
+}
+
+.category-item:hover .category-image {
+  transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Track component css */
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+/* No bounce by default */
+.icon-bounce {
+  display: inline-block;
+  transition: transform 0.3s ease-in-out;
+}
+/* Bounce on hover */
+.custom-box:hover .icon-bounce {
+  animation: bounce 1.2s infinite;
+}
+/* Ensure that shadow and border are properly applied */
+.custom-box {
+  border: 1px solid #ccc !important; /* Light gray border */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1) !important; /* Light shadow */
+  background-color: #f8f9fa !important; /* Light background */
+  transition: box-shadow 0.3s ease-in-out;
+}
+.custom-box:hover {
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2) !important; /* Darker shadow on hover */
+}

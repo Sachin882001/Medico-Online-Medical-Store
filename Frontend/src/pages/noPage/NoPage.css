@@ -1,0 +1,21 @@
+/* NoPage.css */
+.NoPage {
+  background: #f8f9fa; /* Light background color */
+  color: #343a40; /* Darker text color */
+}
+
+.NoPage h1 {
+  font-size: 5rem; /* Larger font size for the error code */
+}
+
+.NoPage h2 {
+  font-size: 2rem; /* Font size for the subheading */
+}
+
+.NoPage p {
+  font-size: 1.25rem; /* Font size for the message */
+}
+
+.NoPage .btn-lg {
+  padding: 0.75rem 1.5rem; /* Larger padding for the button */
+}

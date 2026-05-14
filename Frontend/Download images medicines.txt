@@ -1,0 +1,59 @@
+| Aspirin                   | /drugs.png               |
+| Syringe                   | /injection.png           |
+| Sun Block                 | /sun-block.png           |
+| Homeo Remedy              | /homeopathy.png          |
+| Pain Relief Tablet        | /pain-relief.png         |
+| Microscope                | /lab-equipment.png       |
+| Daily Multivitamin        | /multivitamin.png        |
+| First Aid Kit             | /first-aid-kit.png       |
+
+
+
+| Antibiotic                | /antibiotic.png          |
+| Headache Relief           | /headache-relief.png     |
+| Immune Booster            | /immune-vitamins.png     |
+| Cold & Flu Relief         | /cold-flu.png            |
+| Arthritis Relief          | /arthritis-relief.png    |
+| Blood Pressure Med        | /blood-pressure.png      |
+| Vaccination Syringe       | /vaccination-syringe.png |
+| Injection Needle          | /injection-needle.png    |
+| Insulin Syringe           | /insulin-syringe.png     |
+| Disposable Syringe        | /disposable-syringe.png  |
+| Blood Collection Syringe  | /blood-collection.png    |
+| IV Administration Syringe | /iv-syringe.png          |
+| Facial Cream              | /facial-cream.png        |
+| Anti-Aging Serum          | /anti-aging-serum.png    |
+| Hair Conditioner          | /hair-conditioner.png    |
+| Body Lotion               | /body-lotion.png         |
+| Face Mist                 | /face-mist.png           |
+| Eye Cream                 | /eye-cream.png           |
+| Cold Remedy               | /homeo-cold.png          |
+| Allergy Treatment         | /homeo-allergy.png       |
+| Sleep Medicine            | /homeo-sleep.png         |
+| Stress Cure               | /homeo-stress.png        |
+| Digestion Remedy          | /homeo-digestion.png     |
+| Skin Treatment            | /homeo-skin.png          |
+| Pain Relief Patch         | /pain-patch.png          |
+| Muscle Gel                | /muscle-gel.png          |
+| Pain Relief Cream         | /pain-cream.png          |
+| Anti-Inflammatory Tabs    | /anti-inflammatory.png   |
+| Back Pain Spray           | /back-pain-spray.png     |
+| Pain Ointment             | /pain-ointment.png       |
+| Thermometer               | /thermometer.png         |
+| BP Monitor                | /bp-monitor.png          |
+| Pulse Oximeter            | /pulse-oximeter.png      |
+| Stethoscope               | /stethoscope.png         |
+| Glucose Meter             | /glucose-meter.png       |
+| Nebulizer                 | /nebulizer.png           |
+| Adult Multivitamins       | /adult-multivitamins.png |
+| Vitamin C                 | /vitamin-c.png           |
+| Vitamin D                 | /vitamin-d.png           |
+| Omega-3                   | /omega3.png              |
+| Kids Multivitamins        | /kids-multivitamins.png  |
+| Vitamin B Complex         | /vitamin-b.png           |
+| Bandage Roll              | /bandage-roll.png        |
+| Antiseptic Wipes          | /antiseptic-wipes.png    |
+| Adhesive Tape             | /adhesive-tape.png       |
+| Cold Packs                | /cold-packs.png          |
+| Burn Ointment             | /burn-ointment.png       |
+| First Aid Scissors        | /first-aid-scissors.png

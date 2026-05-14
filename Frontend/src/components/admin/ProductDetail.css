@@ -1,0 +1,12 @@
+.container {
+  max-width: 95%;
+}
+
+.img-thumbnail {
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
