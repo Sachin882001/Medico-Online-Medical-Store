@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,12 +29,18 @@ import com.app.security.JWTUtil;
 import com.app.services.UserService;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:3000")
 @SecurityRequirement(name = "E-Commerce Application")
+@Tag(name = "Authentication APIs", description = "Handles user registration and login")
 public class AuthController {
+
+	private static final Logger logger =
+			LoggerFactory.getLogger(AuthController.class);
 
 	@Autowired
 	private UserService userService;
@@ -45,45 +54,68 @@ public class AuthController {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
-	
-	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/register")
-	public ResponseEntity<Map<String, Object>> registerHandler(@Valid @RequestBody UserDTO user) throws UserNotFoundException {
-		String encodedPass = passwordEncoder.encode(user.getPassword());
+	public ResponseEntity<Map<String, Object>> registerHandler(
+			@Valid @RequestBody UserDTO userDTO)
+			throws UserNotFoundException {
 
-		user.setPassword(encodedPass);
+		logger.info("Register request received for user: {}", userDTO.getEmail());
 
-		UserDTO userDTO = userService.registerUser(user);
+		// Encode password before saving
+		String encodedPass = passwordEncoder.encode(userDTO.getPassword());
 
-		String token = jwtUtil.generateToken(userDTO.getEmail());
+		userDTO.setPassword(encodedPass);
 
-		return new ResponseEntity<Map<String, Object>>(Collections.singletonMap("jwt-token", token),
+		// Save user
+		UserDTO savedUser = userService.registerUser(userDTO);
+
+		logger.info("User registered successfully: {}", savedUser.getEmail());
+
+		// Generate JWT token
+		String token = jwtUtil.generateToken(savedUser.getEmail());
+
+		return new ResponseEntity<>(
+				Collections.singletonMap("jwt-token", token),
 				HttpStatus.CREATED);
 	}
 
-	
-	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/login")
-	public Map<String, Object> loginHandler(@Valid @RequestBody LoginCredentials credentials) {
+	public ResponseEntity<Map<String, Object>> loginHandler(
+			@Valid @RequestBody LoginCredentials credentials) {
 
-		UsernamePasswordAuthenticationToken authCredentials = new UsernamePasswordAuthenticationToken(
-				credentials.getEmail(), credentials.getPassword());
+		logger.info("Login request received for user: {}", credentials.getEmail());
 
+		UsernamePasswordAuthenticationToken authCredentials =
+				new UsernamePasswordAuthenticationToken(
+						credentials.getEmail(),
+						credentials.getPassword());
+
+		// Authenticate user
 		authenticationManager.authenticate(authCredentials);
-		
+
+		logger.info("User authenticated successfully: {}", credentials.getEmail());
+
+		// Fetch user roles
 		Set<Role> roles = userService.verifyRole(credentials.getEmail());
-		Role firstRole = roles.iterator().next();
+
+		final Role firstRole = roles.iterator().next();
+
+		// Fetch user details
 		User user = userService.getUserInfo(credentials.getEmail());
 
+		// Generate JWT token
 		String token = jwtUtil.generateToken(credentials.getEmail());
 
-		 Map<String, Object> response = new HashMap<>();
-		    response.put("jwt-token", token);
-		    response.put("role", firstRole.getRoleName());
-		    response.put("user", user.getEmail());
-		    response.put("firstName", user.getFirstName());
-		    response.put("lastName", user.getLastName());
+		Map<String, Object> authResponse = new HashMap<>();
 
-		    return response;
+		authResponse.put("jwt-token", token);
+		authResponse.put("role", firstRole.getRoleName());
+		authResponse.put("user", user.getEmail());
+		authResponse.put("firstName", user.getFirstName());
+		authResponse.put("lastName", user.getLastName());
+
+		logger.info("Login successful for user: {}", credentials.getEmail());
+
+		return new ResponseEntity<>(authResponse, HttpStatus.OK);
 	}
 }
